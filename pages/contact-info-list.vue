@@ -1,32 +1,18 @@
 <template>
   <div class="container">
-<!--    <v-data-table-->
-<!--      v-model="selected"-->
-<!--      :headers="headers"-->
-<!--      :items="items"-->
-<!--      :single-select="singleSelect"-->
-<!--      item-key="id"-->
-<!--      show-select-->
-<!--      class="elevation-1"-->
-<!--    >-->
-<!--      <template v-slot:top>-->
-<!--        <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>-->
-<!--      </template>-->
-<!--    </v-data-table>-->
-
-
-    <table border="1">
-      <tbody>
-      <tr>
-        <th>ID</th>
-        <th>contact-dest</th>
-      </tr>
-      <tr v-for="item in items" :key="item.id">
-        <td>{{ item.id }}</td>
-        <td>{{ item.contact_information }}</td>
-      </tr>
-      </tbody>
-    </table>
+    <v-data-table
+      v-model="selected"
+      :headers="headers"
+      :items="items"
+      :single-select="singleSelect"
+      item-key="id"
+      show-select
+      class="elevation-1"
+    >
+      <template v-slot:top>
+        <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
+      </template>
+    </v-data-table>
   </div>
 </template>
 
@@ -35,6 +21,18 @@
     name: "contact-info-list",
     data() {
       return {
+        singleSelect: false,
+        selected: [],
+        headers: [
+          {
+            text: 't-id',
+            align: 'left',
+            sortable: false,
+            value: 'id',
+          },
+          {text: 't-contact_type', value: 'contact_type'},
+          {text: 't-contact_information', value: 'contact_information'},
+        ],
         items: []
       }
     },
