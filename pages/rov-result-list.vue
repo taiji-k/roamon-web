@@ -25,20 +25,22 @@
         selected: [],
         headers: [
           {
-            text: 't-id',
+            text: 't-prefix',
             align: 'left',
             sortable: false,
-            value: 'id',
+            value: 'prefix',
           },
-          {text: 't-contact_type', value: 'contact_type'},
-          {text: 't-contact_information', value: 'contact_information'},
+          {text: 't-rov_status', value: 'rov_status'},
+          {text: 't-advertised_prefix', value: 'advertised_prefix'},
+          {text: 't-advertising_asn', value: 'advertising_asn'},
+          {text: 't-data_fetched_at', value: 'data_fetched_at'},
         ],
         items: []
       }
     },
     mounted: function () {
       this.$axios
-        .$get('/api/all-contact-info')
+        .$get('/api/all-rov-result')
         .then(response => {
           this.items = response
         })
