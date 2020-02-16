@@ -1,31 +1,40 @@
 # roamon-web
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-
-概要を書く
+roamon-alertのWeb GUI的なことができます.  
 
 ## Installation
-インストール方法を書く
+まずクローンします
+```bash
+$ git clone https://github.com/taiji-k/roamon-web.git
+```
+### ローカルマシンでyarnで起動
+``` bash
+$ yarn dev
+```
+`http://localhost:3000`にアクセス！
 
-## Configuration
-設定方法を書く。コンフィグファイルの書き方とか。無いなら消す
+### NOTE !
+roamon-alertのDBが起動してないと使えません。
+
+roamon-alertの環境を起動するには以下のようにします (DB関連の開発中のブランチ `feature-for_writin_DB` を使用しています)  
+これをすればDBが一緒に起動します。
+```bash
+$ git clone https://github.com/taiji-k/roamon-alert.git --branch feature-for_writin_DB
+$ cd roamon-alert/docker
+$ docker-compose up
+```
+次にコンテナの中でroamon-alert本体を起動します。こうするとDBの中身が準備されます。  
+初回は、データをダウンロードするためroamon-alertのデーモンの起動にちょっと時間かかります。
+```bash
+$ docker exec -it roamon-alert /bin/bash
+># cd roamon-alert
+># python3 roamon_alert_controller.py daemon --start
+```
 
 ## Usage
-実際に使うときの操作の仕方を書く
+左上のバーガーメニューから3つの機能が使えます。
+* 全ての連絡先の表示
+* 全てのROV結果の表示
+* 新しい連絡先と監視対象prefix, asnの追加
+    * prefixとasnは `,` 区切りで複数指定できます
+
+![エビフライトライアングル](README-images/screenshot-show-all-contact-info.png "サンプル")
