@@ -21,6 +21,7 @@
     name: "contact-info-list",
     data() {
       return {
+        // 主にvuetify.jsのテーブル表示のためのもの
         singleSelect: false,
         selected: [],
         headers: [
@@ -39,6 +40,7 @@
       }
     },
     mounted: function () {
+      // APIを通してデータを取得し表示
       this.$axios
         .$get('/api/all-rov-result')
         .then(response => {

@@ -9,8 +9,8 @@
           >
             <v-text-field
               v-model="contact_type"
-              :rules="nameRules"
-              :counter="10"
+              :rules="maxRules"
+              :counter="256"
               label="Contact_type"
               required
             ></v-text-field>
@@ -22,8 +22,8 @@
           >
             <v-text-field
               v-model="contact_dest"
-              :rules="nameRules"
-              :counter="10"
+              :rules="maxRules"
+              :counter="256"
               label="Contact_dest"
               required
             ></v-text-field>
@@ -35,7 +35,7 @@
           >
             <v-text-field
               v-model="prefix_list"
-              :rules="emailRules"
+              :rules="existRules"
               label="Prefix_list"
               required
             ></v-text-field>
@@ -46,7 +46,7 @@
           >
             <v-text-field
               v-model="asn_list"
-              :rules="emailRules"
+              :rules="existRules"
               label="ASN_list"
               required
             ></v-text-field>
@@ -66,25 +66,27 @@
   export default {
     name: "add-contact-info",
     data: () => ({
+      // formで使うものなど
       valid: false,
       contact_type: '',
       contact_dest: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 256 || 'Name must be less than 10 characters',
+      maxRules: [
+        v => !!v || 'required',
+        v => v.length <= 256 || 'must be less than 10 characters',
       ],
       prefix_list: '',
-      emailRules: [
-        v => !!v || 'E-mail is required'
+      existRules: [
+        v => !!v || 'required'
         // v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
       asn_list: '',
     }),
     methods: {
+      // formに入れたものをAPIを使いDBに書き込む
       submit () {
         console.log("buttoned!")
-        console.log(this.prefix_list.split(' '))
-        console.log(this.asn_list.split(' '))
+        console.log(this.prefix_list.replace(' ', '').split(','))
+        console.log(this.asn_list.replace(' ', '').split(','))
         //this.$v.$touch();
 
         // DBに送信
