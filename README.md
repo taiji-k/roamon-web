@@ -19,6 +19,9 @@ roamon-alertの環境を起動するには以下のようにします (DB関連�
 これをすればDBが一緒に起動します。
 ```bash
 $ git clone https://github.com/taiji-k/roamon-alert.git --branch feature-for_writin_DB
+
+#roamon-alertのREADMEにも書いてあるけど、roamon-alert/docker/Dockerfileの中にgithubのユーザ名とパスワードを書くとこがあるので編集しておいてください
+
 $ cd roamon-alert/docker
 $ docker-compose up
 ```
