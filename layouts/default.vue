@@ -105,7 +105,22 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
-        }
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'show-all-contact-info',
+          to: '/contact-info-list'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'show-all-ROV-result',
+          to: '/rov-result-list'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'create-new-contact-info',
+          to: '/create-contact-info'
+        },
       ],
       miniVariant: false,
       right: true,
