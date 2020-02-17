@@ -22,7 +22,7 @@ Access to `http://localhost:3000` !
 
 Roamon-alert's database needs to be running.
 
-To run roamon-alert database, use `feature-for_writin_DB` in it.
+To run roamon-alert database, use roamon-alert `feature-for_writin_DB` branch.
 ```bash
 $ git clone https://github.com/taiji-k/roamon-alert.git --branch feature-for_writin_DB
 $ cd roamon-alert/docker
