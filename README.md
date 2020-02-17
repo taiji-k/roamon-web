@@ -1,8 +1,7 @@
-Roamon-web is developed and maintained by JPNIC young dev team.
-
 ## Documentation
 
-Web-based roamon-alert.
+This is Web-based roamon-alert.
+Roamon-web is developed and maintained by JPNIC young dev team.
 
 ## Installation
 
